@@ -173,7 +173,7 @@
             margin: 2rem 0;
         }
 
-        .form-group {
+        .email,.name,.message {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;

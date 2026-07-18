@@ -6,6 +6,8 @@
     <title>Hire Tamara O. | Portfolio</title>
     <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
     <script type="text/javascript" src="./assets/scripts/script.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@formspree/ajax@1" defer></script>
+     <script type="text/javascript" src="./assets/scripts/formspree.js" defer></script>
 </head>
 <body>
     <header>
@@ -50,7 +52,7 @@
                 <div class="project-card">
                     <div>
                         <h3>Otterly Funny</h3>
-                        <p>In the wild, otters are fiercely protective communal mammals. In my project, I used Express.js for a built in API of otterly funny jokes.<br>🥁🦦<em>badum tss</em></p>
+                        <p>In the wild, otters are fiercely protective communal mammals. In my project, I used a built in API of otterly funny jokes.<br>🥁🦦<em>badum tss</em></p>
                     </div>
                     <a href="#" class="btn">Learn More</a>
                 </div>
@@ -64,6 +66,14 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="project-card">
+                    <div>
+                        <h3>Neocities</h3>
+                        <p>Neocities is a social media site where users can create personal websites using 'old Internet' aesthetics and web development concepts. I handcoded a simple site using <code>HTML</code>, <code>CSS</code> and <code>Javascript</code>. Only the Javascript came from AI help. My goal is to use Neocities to showcase what I'm learning in my online courses and while working on web development projects.</p>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <!-- Project 4 -->
+                   <div class="project-card">
                     <div>
                         <h3>Portfolio</h3>
                         <p>This portfolio website was created with <code>HTML</code>, <code>CSS</code> and <code>Javascript</code>. My goal was to help visitors learn about me, view my project portfolio, and be able to contact me.</p>
@@ -86,23 +96,30 @@
         <section id="contact">
             <h2>Contact Me</h2>
             <p>This simple HTML contact form uses a <span class="formspree"><a href="">Formspree</a> form template to submit the form to me via email. Send me a friendly message now!</p>
+<!--formspree with ajax js -->
+<div data-fs-success>Thanks for your submission!</div>
+<div data-fs-error formError class="form-error">Oops! There was a problem submitting your form.</div>
+<form id="my-form"  action="https://formspree.io/f/xgogkzzw"
+  method="POST">
+     <div class="form-group"></div>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" data-fs-field />
+</div>
+  <span data-fs-error="email"></span>
+        <div class="form-group"></div>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" data-fs-field />
+</div>
+  <span data-fs-error="email"></span>
+      <div class="form-group"></div>
 
-            <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required placeholder="Jane Doe">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required placeholder="jane@example.com">
-                </div>
-                <div class="form-group"> 
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="5" required placeholder="Your message here..."></textarea>
-                </div>
-                <span id="formError" class="form-error">Please fill in all fields correctly.</span>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+<label for="message">Your Message:</label>
+<textarea id="message" name="message" rows="5" cols="40" placeholder="Type your message here..." data-fs-field></textarea>
+  <!-- <input type="text" id="message" name="message" data-fs-field /> -->
+  </div>
+<span data-fs-error="message"></span>
+  <button type="submit" data-fs-submit-btn class="btn">Submit</button>
+</form>
 
             <div class="contact-links">
                 <a href="mailto:hiretamara+portfolioinquiry@mailbox.org">Email Me Directly</a>
@@ -114,7 +131,7 @@
                 <a href="https://linkedin.com/in/hiretamara" target="_blank" rel="noopener">LinkedIn</a>
             </div>
 
-            <!-- Resume Download for later ---
+            <!-- Resume with Download link for later ---
             <div class="resume-section">
                 <h3>Resume</h3>
                 <p>Need a copy of my professional history? View it directly or download it below.</p>
@@ -130,9 +147,6 @@
     <footer>
         <p>&copy; 2026 Hire Tamara O. All rights reserved.</p>
     </footer>
-
-    
-
-    
 </body>
 </html>
+
