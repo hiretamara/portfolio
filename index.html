@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Tamara O. | Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
+    <script type="text/javascript" src="./assets/scripts/script.js"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo" onclick="navigateTo('home')">Hire Tamara O.</a>
+        <nav>
+            <ul>
+                <li><a onclick="navigateTo('home')" class="nav-link active" id="nav-home">Home</a></li>
+                <li><a onclick="navigateTo('about')" class="nav-link" id="nav-about">About</a></li>
+                <li><a onclick="navigateTo('portfolio')" class="nav-link" id="nav-portfolio">Portfolio</a></li>
+                <li><a onclick="navigateTo('contact')" class="nav-link" id="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Landing Section -->
+        <section id="home" class="active">
+            <h1>Hi, I'm Tamara</h1>
+            <p>This is my online home where you can learn about me and take a look at my portfolio.</p>
+            <p>I'm a creative front-end web developer learning web development using Javascript and React, AI engineering, and looking to <em>sharpen</em> my understanding of development for backend processes.</p>
+            <p>My current goal is to learn using <span class="intro"><a href="https://www.theodinproject.com/paths/full-stack-javascript">The Odin Project</a></span> and <span class="intro"><a href="https://www.freecodecamp.org/learn/responsive-web-design-v9">Freecodecamp's Responsive Web Design</a></span> course while gaining professional web development experience through volunteering and freelance projects.</p><div style="margin-top: 2rem;">
+                <button class="btn" onclick="navigateTo('portfolio')">View My Work</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-container">
+                <!--This is where I will link my photo later<img src="./assets/images/picture.jpg" alt="TeeTeaTe profile portrait" class="profile-img">-->
+                <h2>About Me</h2>
+                <p>I'm learning creative front-end web development using online courses and working professionally on project teams.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2>My Projects</h2>
+            <p>Take a look at my project portfolio. As I complete more projects and gain more experience with web development, I will add additional projects here.</p>
+            
+            <div class="projects-grid" id="projects-container">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Otterly Funny</h3>
+                        <p>In the wild, otters are fiercely protective communal mammals. In my project, I used Express.js for a built in API of otterly funny jokes.<br>🥁🦦<em>badum tss</em></p>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3>We Miss The Old Kanye West</h3>
+                        <p>Kanye West is a Grammy-winning producer and rapper. He is known for infusing hip hop music with R&B and soul music samples. This project shares some of his most popular lyrics (from the Genius lyrics website) and some of his most 'interesting' quotes from the Kanye REST API.</p>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Portfolio</h3>
+                        <p>This portfolio website was created with <code>HTML</code>, <code>CSS</code> and <code>Javascript</code>. My goal was to help visitors learn about me, view my project portfolio, and be able to contact me.</p>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                
+                <!-- FUTURE EXPANSION: I will copy and pate this block below to manually add more projects at a later date:
+                <div class="project-card">
+                    <div>
+                        <h3>Project Four</h3>
+                        <p>Your project description goes here.</p>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                -->
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>This simple HTML contact form uses a <span class="formspree"><a href="">Formspree</a> form template to submit the form to me via email. Send me a friendly message now!</p>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="jane@example.com">
+                </div>
+                <div class="form-group"> 
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required placeholder="Your message here..."></textarea>
+                </div>
+                <span id="formError" class="form-error">Please fill in all fields correctly.</span>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <div class="contact-links">
+                <a href="mailto:hiretamara+portfolioinquiry@mailbox.org">Email Me Directly</a>
+            </div>
+
+            <h3>Social Channels</h3>
+            <div class="social-links">
+                <a href="https://github.com/hiretamara" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/hiretamara" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+
+            <!-- Resume Download for later ---
+            <div class="resume-section">
+                <h3>Resume</h3>
+                <p>Need a copy of my professional history? View it directly or download it below.</p>
+                <div class="social-links">
+                    <a href="resume-placeholder.pdf" target="_blank" rel="noopener">View PDF Resume</a>
+                    <a href="resume-placeholder.pdf" download>Download PDF Resume</a>
+                </div>
+            </div>
+        -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hire Tamara O. All rights reserved.</p>
+    </footer>
+
+    
+
+    
+</body>
+</html>
