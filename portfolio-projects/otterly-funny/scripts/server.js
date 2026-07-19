@@ -9,14 +9,7 @@ const PORT = process.env.PORT || 3000;
 //Step up one folder to find the public directory
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Sample Array of Otter Jokes (Expand this with your spreadsheet data)
-// const jokes = [
-//   { id: 1, category: "General", setup: "Where do otters keep their money?", punchline: "In the riverbank!" },
-//   { id: 2, category: "Puns", setup: "Why did the otter cross the road?", punchline: "To get to the otter side." },
-//   { id: 3, category: "Wholesome", setup: "What did the otter say to comfort their friend?", punchline: "Don't worry, things will be otterly fine!" },
-//   { id: 4, category: "General", setup: "What kind of car does an otter drive?", punchline: "An otter-mobile!" },
-//   { id: 5, category: "Puns", setup: "What do you call an otter with glasses?", punchline: "A spec-tangled otter!" }
-// ];
+
 
 
 
