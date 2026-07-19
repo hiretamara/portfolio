@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 3000;
 
 
 
-
 //Step up one folder to find the public directory
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
@@ -147,4 +146,9 @@ app.get('*any', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running online on port ${PORT}`);
+});
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
