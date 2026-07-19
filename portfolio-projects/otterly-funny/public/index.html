@@ -2,10 +2,311 @@
 <html lang="en">
 <head>
   <script src="../script.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="../assets/style/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Otterly Funny Jokes! | Portfolio Project</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --bg-color: #121212;         /* Darker, almost-black gray background */
+      --otter-primary: #3772ff;    /* Deep cobalt blue */
+      --otter-accent: #70e4ef;     /* Vibrant cyan */
+      --text-pink: #ef70d9;        /* Neon pink-magenta */
+      --text-lime: #e2ef70;        /* Contrasting lime-yellow */
+      --card-bg: #1c1c1c;          /* Inner container card color */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: var(--text-pink);
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(239, 112, 217, 0.4);
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: var(--otter-accent);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Main Responsive Container */
+    .app-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      width: 100%;
+      max-width: 900px;
+      align-items: center;
+      justify-items: center;
+      flex-grow: 1;
+    }
+
+    /* Media query for larger tablet and desktop viewports */
+    @media (min-width: 768px) {
+      .app-container {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px;
+      }
+    }
+
+    /* Otter Vector Styling */
+    .otter-wrapper {
+      position: relative;
+      width: 280px;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .otter-svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    /* Keyframe Animations */
+    @keyframes otterIdle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes otterLaugh {
+      0%, 100% { transform: scale(1) translateY(0); }
+      20% { transform: scale(1.05) translateY(-15px) rotate(-3deg); }
+      40% { transform: scale(0.98) translateY(2px) rotate(3deg); }
+      60% { transform: scale(1.05) translateY(-10px) rotate(-3deg); }
+      80% { transform: scale(0.98) translateY(2px) rotate(1deg); }
+    }
+
+    @keyframes whiskerTwitch {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(4deg); }
+    }
+
+    .otter-idle {
+      animation: otterIdle 4s ease-in-out infinite;
+    }
+
+    .otter-laughing {
+      animation: otterLaugh 1.2s ease-in-out !important;
+    }
+
+    .whisker-left {
+      transform-origin: 110px 105px;
+      animation: whiskerTwitch 3s ease-in-out infinite;
+    }
+    
+    .whisker-right {
+      transform-origin: 140px 105px;
+      animation: whiskerTwitch 3s ease-in-out infinite reverse;
+    }
+
+    /* Display / Interaction Panel */
+    .display-panel {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* Dialogue bubble styling */
+    .joke-bubble {
+      background-color: var(--card-bg);
+      border: 3px solid var(--otter-accent);
+      border-radius: 20px;
+      padding: 25px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 
+                  0 0 15px rgba(112, 228, 239, 0.15);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    /* Speech Bubble Tail (visible only on desktop side-by-side) */
+    @media (min-width: 768px) {
+      .joke-bubble::after {
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 25px;
+        height: 25px;
+        background-color: var(--card-bg);
+        border-left: 3px solid var(--otter-accent);
+        border-bottom: 3px solid var(--otter-accent);
+      }
+    }
+
+    .joke-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--otter-accent);
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .joke-setup {
+      color: var(--text-lime);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .joke-punchline {
+      color: var(--text-pink);
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .joke-punchline.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Button Layout Container */
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* Alignment rules for screen breaking points */
+    @media (min-width: 480px) {
+      .btn-container {
+        flex-direction: row;
+      }
+      .joke-btn {
+        flex: 1;        /* Stretches to occupy the rest of the layout width */
+      }
+      .exit-btn {
+        flex: 0 0 auto; /* Compact custom size based purely on text length */
+      }
+    }
+
+    /* Interactive Joke Button base */
+    .joke-btn {
+      background-color: var(--card-bg);
+      border: 3px solid var(--text-pink);
+      border-radius: 50px;
+      color: var(--text-lime);
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 16px 30px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      outline: none;
+      box-shadow: 0 5px 15px rgba(239, 112, 217, 0.15), 
+                  inset 0 0 10px rgba(239, 112, 217, 0.05);
+    }
+
+    .joke-btn:hover {
+      transform: translateY(-3px);
+      background-color: var(--text-pink);
+      color: var(--card-bg);
+      box-shadow: 0 8px 25px rgba(239, 112, 217, 0.4);
+    }
+
+    .joke-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Interactive Exit Button (Matches size/feel of joke-btn but in Gray) */
+    .exit-btn {
+      background-color: var(--card-bg);
+      border: 3px solid #666666; 
+      border-radius: 50px;
+      color: #cccccc; 
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 16px 30px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      outline: none;
+      box-shadow: 0 5px 15px rgba(102, 102, 102, 0.15), 
+                  inset 0 0 10px rgba(102, 102, 102, 0.05);
+      
+      /* Align SVG door icon inside the button bounds */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .exit-btn:hover {
+      transform: translateY(-3px);
+      background-color: #555555;
+      color: #ffffff;
+      border-color: #888888;
+      box-shadow: 0 8px 25px rgba(102, 102, 102, 0.4);
+    }
+
+    .exit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .exit-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    footer {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--otter-accent);
+      text-decoration: none;
+    }
+  
+  </style>
 </head>
 <body>
   <header>
