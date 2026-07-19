@@ -1,0 +1,394 @@
+
+
+        :root {
+            --dropout-bg: #8c2d19;
+            --dropout-accent: #f2cb05;
+            --yeezus-bg: #1a1a1a;
+            --yeezus-accent: #555555;
+            --text-light: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow-x: hidden;
+            background-color: #000;
+        }
+
+        /* --- Optional Full Width Header Space --- */
+        /* If you add an image here, it stretches left-to-right without covering text */
+        .header-banner {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Intro Overlay Modal --- */
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .intro-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #1f1f1f 0%, #111111 100%);
+            border: 2px solid var(--dropout-accent);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 550px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            color: var(--text-light);
+        }
+
+        .intro-card h2 {
+            font-family: 'Georgia', serif;
+            color: var(--dropout-accent);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .intro-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .intro-card p  span.old {
+            font-weight: bold;
+            font-family: monospace;
+            color:#e53935;
+             letter-spacing: 1px;
+        }
+
+        .blurb-link {
+
+             font-family: 'Georgia', serif;
+            color: red;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px; 
+            text-decoration: none; 
+        }
+
+        .intro-card p span.new {
+            color: #929085;
+            font-weight: bold;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        .btn-start {
+            background-color: var(--dropout-accent);
+            color: #4a1207;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-start:hover {
+            background-color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Main Content Layout */
+        .content-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: row;
+        }
+
+        /* Split Screen Layout */
+        .half {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 40px;
+            padding-top: 60px;
+            transition: flex 0.5s ease;
+            overflow-y: auto;
+        }
+
+        .half:hover {
+            flex: 1.1;
+        }
+
+        .dropout-side {
+            background: radial-gradient(circle, var(--dropout-bg) 0%, #4a1207 100%);
+            border-right: 4px solid #000;
+        }
+
+        .yeezus-side {
+            background: radial-gradient(circle, #2d2d2d 0%, var(--yeezus-bg) 100%);
+        }
+
+        /* Typography */
+        h1 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .dropout-side h1 {
+            color: var(--dropout-accent);
+            font-family: 'Georgia', serif;
+        }
+
+        .yeezus-side h1 {
+            font-weight: 300;
+            letter-spacing: 6px;
+        }
+
+        .subtitle {
+            color: #ddd;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Character Renderings */
+        .bear-wrapper {
+            max-height: 35vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .bear-img {
+            height: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .bear-img:active {
+            transform: scale(0.95);
+        }
+
+        /* Dialogue Speech Bubbles */
+        .bubble {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 25px;
+            position: relative;
+            width: 85%;
+            max-width: 420px;
+            
+            /* CHANGED: Hide boxes completely by default */
+            display: none; 
+            
+            height: auto;
+            min-height: fit-content;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #111;
+            white-space: pre-line;
+            word-break: break-word;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* CHANGED: Target active speech bubble state to switch layout display to flex */
+        .bubble.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -15px;
+            border-width: 15px;
+            border-style: solid;
+            border-color: transparent transparent white transparent;
+        }
+
+        /* Customizations for Yeezus dialogue styling */
+        .yeezus-side .bubble {
+            background: #111;
+            color: #fff;
+            border: 1px solid #333;
+            font-family: monospace;
+            border-radius: 4px;
+        }
+
+        .yeezus-side .bubble::after {
+            border-color: transparent transparent #111 transparent;
+        }
+
+        /* Interaction Buttons */
+        .btn {
+            margin-top: 25px;
+            padding: 12px 28px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .btn-dropout {
+            background-color: var(--dropout-accent);
+            color: #4a1207;
+        }
+
+        .btn-dropout:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-yeezus {
+            background-color: #333;
+            color: var(--text-light);
+            border: 1px solid #555;
+        }
+
+        .btn-yeezus:hover {
+            background-color: var(--text-light);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Dynamic JS Footer Styling */
+        .dynamic-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+           background-color: rgb(22, 21, 21); /* rgba(0, 0, 0, 0.8); */
+            color: #888;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            z-index: 999;
+            letter-spacing: 0.5px;
+            border-top: 1px solid #222;
+        }
+
+        .dynamic-footer a .restapi,.dynamic-footer a .genius {
+            color: pink;
+            text-decoration: none;
+            margin-left: 5px;
+          
+        }
+
+
+        .dynamic-footer a {
+            color: var(--dropout-accent);
+            text-decoration: none;
+            margin-left: 5px;
+            transition: color 0.2s ease;
+        }
+
+     
+        .dynamic-footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                overflow-y: auto;
+                height: auto;
+            }
+            .half {
+                height: auto;
+                min-height: 50vh;
+                padding: 30px 20px;
+                padding-bottom: 60px; /* Space for the fixed footer on mobile screens */
+            }
+            .half:hover {
+                flex: 1;
+            }
+            .bear-wrapper {
+                max-height: 20vh;
+            }
+            .bear-img {
+                max-height: 160px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .bubble {
+                font-size: 0.95rem;
+                padding: 15px;
+                margin-top: 10px;
+                width: 90%;
+            }
+            .bubble::after {
+                display: none;
+            }
+        }
+
+        .college-side h1,
+        .yeezus-side h1 {
+            font-size: 2.5rem;          
+            font-weight: 700;           
+            letter-spacing: 2px;        
+            text-transform: uppercase;   
+            margin-bottom: 10px;        
+            text-align: center;         
+        }
+   

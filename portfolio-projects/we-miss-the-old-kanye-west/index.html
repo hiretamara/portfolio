@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Miss The Old Kanye</title>
+   
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.io/favicon-32x32-2.png">
+    <link rel="stylesheet" href="./assets/style/style.css" type="text/css"> 
+</head>
+<body>
+
+    <!-- INTRO BLURB OVERLAY -->
+    <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-card">
+            <h2>We Miss The Old kanYe West</h2>
+            <p>Welcome to a project exploring the artistic evolution of Kanye West.</p>
+            <p>This project was created with HTML, CSS, and Javascript.</p>
+            <p><a href="#" class="blurb-link">Click here to get back to my portfolio site now.</a></p>
+                <p>On the left from 2004 is <span class="old">"Old Kanye"</span>—the soulful, chipmunk-soul producing, pink-polo wearing visionary behind <em>The College Dropout</em>.</p>
+            <p>On the right, experience the <span class="new">"New Kanye"</span>—the raw, industrial, boundary-pushing ego of the <em>Yeezus</em> era and beyond.</p>
+            <p>Explore both eras by interacting with the bears to generate classic lyrics and modern unfiltered thoughts.</p>
+            <button class="btn-start" id="close-intro-btn">Enter Project</button>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="content-container">
+        <!-- COLLEGE DROPOUT SIDE -->
+        <div class="half dropout-side">
+            <h1>The College Dropout</h1>
+            <div class="subtitle">Era: 2004</div>
+            
+            <div class="bear-wrapper">
+                <img src="./assets/images/college-dropout-bear.png" alt="College Dropout Bear" class="bear-img" id="dropout-bear">
+            </div>
+
+            <!-- Note: Default text removed to keep layout pristine before user interaction -->
+            <div class="bubble" id="dropout-bubble"></div>
+            <button class="btn btn-dropout" id="dropout-btn">Get Lyric</button>
+        </div>
+
+        <!-- YEEZUS / YEEZY SIDE -->
+        <div class="half yeezus-side">
+            <h1>Yeezus</h1>
+            <div class="subtitle">Era: 2013+</div>
+            
+            <div class="bear-wrapper">
+                <img src="./assets/images/yeezy-bear.png" alt="Yeezus Bear" class="bear-img" id="yeezus-bear">
+            </div>
+
+            <!-- Note: Default text removed to keep layout pristine before user interaction -->
+            <div class="bubble" id="yeezus-bubble"></div>
+            <button class="btn btn-yeezus" id="yeezus-btn">Fetch Quote</button>
+        </div>
+    </div>
+
+<script src="./script.js"></script>
+
+
+</body>
+</html>
