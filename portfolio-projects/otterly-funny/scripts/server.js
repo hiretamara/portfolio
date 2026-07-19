@@ -139,15 +139,6 @@ app.get('/api/jokes/random', (req, res) => {
   res.json(randomJoke);
 });
 
-// // Catch-all route to serve the frontend index.html
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// });
-
-// Catch-all route updated for Express v5+ compatibility
-// app.get('*any', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// });
 
 // Catch-all route updated for Express v5+ compatibility
 app.get('*any', (req, res) => {
