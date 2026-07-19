@@ -28,7 +28,7 @@
             const footer = document.createElement('footer');
             footer.className = 'dynamic-footer';
             
-            // Note: Remember to swap out placeholder text with your actual names and URL strings!
+//footer links
             footer.innerHTML = `
                 &copy; 2026 <a href="https://hiretamara.com" target="_blank">Tamara O.</a> | "We miss the old kanYe West." A portfolio project made with Javascript,<a href="https://genius.com/artists/Kanye-west" class="genius" target="_blank">Genius lyrics</a> and the <a href="" target="_blank" class="restapi">Kanye REST API</a>. <a href="https://hiretamara.com/#nav-portfolio" target="_blank">Back to Portfolio</a>
             `;
