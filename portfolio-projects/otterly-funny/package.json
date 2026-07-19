@@ -1,12 +1,12 @@
 {
   "name": "otterly-funny",
   "version": "1.0.0",
-  "description": "An otterly hilarious joke application",
+  "description": "An otterly hilarious joke app",
   "main": "scripts/server.js",
   "scripts": {
     "start": "node scripts/server.js"
   },
   "dependencies": {
-    "express": "^5.0.1"
+    "express": "^5.2.1"
   }
 }
